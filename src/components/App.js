@@ -1,25 +1,48 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import '../styles/App.css';
+import NavBar from './NavBar';
+import CarDetails from '../containers/CarDetails';
+import SignUp from '../containers/User/SignUp';
+import Login from '../containers/User/login';
+import Logout from '../containers/User/Logout';
+import NewCar from './NewCar';
+import Error from './Error';
+import authenticate from '../redux/actions/authenticate';
+import CarList from '../containers/CarList';
 
-function App() {
-	return (
-		<div className='app'>
-			<Router>
-				<NavBar />
-				<Routes>
-					<Route exact path='/' element={<Home />} />
-					<Route exact path='/Cars' element={<CarList />} />
-					<Route exact path='/signup' element={<SignUp />} />
-					<Route exact path='/login' element={<Login />} />
-					<Route exact path='/logout' element={<Logout />} />
-					<Route exact path='About' element={<About />} />
-					<Route path='*' element={<Error />} />
-				</Routes>
-				<Footer />
-			</Router>
-		</div>
-	);
-}
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const user = localStorage.getItem('token');
+    if (user) {
+      dispatch(
+        authenticate({
+          status: true,
+          token: user.token,
+          email: user.email,
+        }),
+      );
+    } else {
+      dispatch(authenticate());
+    }
+  }, []);
+  return (
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route exact path="/" element={<CarList />} />
+        <Route exact path="/cars" element={<CarList />} />
+        <Route path="/login" exact element={<Login />} />
+        <Route path="/signup" exact element={<SignUp />} />
+        <Route path="/logout" exact element={<Logout />} />
+        <Route path="/car/:id" element={<CarDetails />} />
+        <Route path="/cars" exact element={<NewCar />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;

@@ -2,7 +2,6 @@ import actionTypes from '../constants/actionTypes';
 
 const initialState = {
   token: '',
-  username: {},
   status: false,
 };
 

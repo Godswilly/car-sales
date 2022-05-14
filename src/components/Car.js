@@ -3,46 +3,42 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Car = ({
-  id,
-  mileage,
-  price,
-  description,
-  carModel,
-  image,
-  carMake,
-  year,
+	id,
+	// mileage,
+	price,
+	// description,
+	carModel,
+	image,
+	carMake,
+	// year,
 }) => (
-  <div className="" key={id}>
-    <Link className="card " to={`/car/${id}`}>
-      <div>
-        <img className="my-image" src={image} alt={carMake} />
-      </div>
-      <div>
-        <h3 className="my-title">{mileage}</h3>
-      </div>
-      <div>
-        <h3 className="my-title">{description}</h3>
-      </div>
-      <div>
-        <h3 className="my-title">{carModel}</h3>
-      </div>
-      <div>
-        <h3 className="my-title">{year}</h3>
-        <h3 className="title text-success">$ {price}</h3>
-      </div>
-    </Link>
-  </div>
+	<div key={id} className='cover'>
+		<Link to={`/cars/${id}`} className='content'>
+			<div>
+				<img src={image} alt={carMake} className='img' />
+			</div>
+			<div className='box'>
+				<p>Make: {carMake}</p>
+			</div>
+			<div className='box'>
+				<p>Model: {carModel}</p>
+			</div>
+			<div className='box'>
+				<p>Price: ${price}</p>
+			</div>
+		</Link>
+	</div>
 );
 
 Car.propTypes = {
-  id: PropTypes.string.isRequired,
-  mileage: PropTypes.number.isRequired,
-  images: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-  carMake: PropTypes.string.isRequired,
-  carModel: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+	id: PropTypes.string.isRequired,
+	mileage: PropTypes.number.isRequired,
+	image: PropTypes.string.isRequired,
+	year: PropTypes.string.isRequired,
+	carMake: PropTypes.string.isRequired,
+	carModel: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
+	price: PropTypes.number.isRequired,
 };
 
 export default Car;

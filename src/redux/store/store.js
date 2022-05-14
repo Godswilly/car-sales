@@ -1,17 +1,12 @@
-import {
-	legacy_createStore as createStore,
-	applyMiddleware,
-	compose,
-} from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore } from 'redux-persist';
+import rootReducer from '../reducers/index';
 import thunk from 'redux-thunk';
-import rootReducer from '../reducers';
 
-const initialState = {};
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: [thunk],
+});
 
-const store = createStore(
-	rootReducer,
-	initialState,
-	compose(applyMiddleware(thunk))
-);
-
-export default store;
+const persistor = persistStore(store);
+export { store, persistor };

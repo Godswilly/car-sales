@@ -1,8 +1,8 @@
 import actionTypes from '../constants/actionTypes';
 
-const authenticate = (user) => ({
+const authenticate = (token) => ({
   type: actionTypes.AUTHENTICATE,
-  payload: user,
+  payload: token,
 });
 
 export default authenticate;

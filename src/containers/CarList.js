@@ -14,9 +14,9 @@ const CarList = () => {
   return (
     <>
       <div className="container">
-        <div className="my-card">
+        <div className='carlist'>
           {cars.map((car) => {
-            const { _id, milage, price, description, carModel, images, carMake, year } =
+            const { _id, mileage, price, description, carModel, images, carMake, year } =
               car;
             return (
               <Car
@@ -24,7 +24,7 @@ const CarList = () => {
                 id={_id}
                 carMake={carMake}
                 carModel={carModel}
-                milage={milage}
+                mileage={mileage}
                 description={description}
                 price={price}
                 image={images[0]}

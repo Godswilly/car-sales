@@ -1,39 +1,53 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import '../assets/styles/index.css'
 
 const NavBar = () => {
 	const auth = useSelector((state) => state.authenticate);
 
 	return (
-		<div data-testid='nav'>
-			<nav className=''>
-				<div className='container nav'>
-					<h5 className=''>
-						<Link to='/' className='logo'>
-							Home
+		<div>
+			<nav>
+				<div className='bg'>
+					<ul>
+						<Link to='/' className='nav-link link'>
+							ALL CARS
 						</Link>
-					</h5>
+					</ul>
 
 					{!auth.status && (
-						<div className='d-flex'>
-							<ul className=''>
-								<Link to='/signup' className=' ml-4'>
-									Sign Up
+						<>
+							<ul>
+								<Link to='/signup' className='nav-link link'>
+									SIGN UP
 								</Link>
 							</ul>
-							<ul className=''>
-								<Link to='/login' className='ml-4'>
-									Login
+							<ul>
+								<Link to='/login' className='nav-link link'>
+									LOGIN
 								</Link>
 							</ul>
-						</div>
+							</>
 					)}
-
+					{auth.status && (
+						<>
+							<ul>
+								<Link to='/create-car' className='nav-link link'>
+									POST CAR
+								</Link>
+							</ul>
+							<ul>
+								<Link to='/my-cars' className='nav-link link'>
+									MY CARS
+								</Link>
+							</ul>
+						</>
+					)}
 					<ul>
 						{auth.status && (
-							<Link to='/logout' className='ml-4'>
-								Logout
+							<Link to='/logout' className='nav-link link'>
+								LOGOUT
 							</Link>
 						)}
 					</ul>

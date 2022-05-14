@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import CarDetails from '../containers/CarDetails';
 import SignUp from '../containers/User/SignUp';
-import Login from '../containers/User/login';
+import Login from '../containers/User/Login';
 import Logout from '../containers/User/Logout';
-import NewCar from './NewCar';
+import NewCar from '../containers/NewCar';
 import Error from './Error';
 import authenticate from '../redux/actions/authenticate';
 import CarList from '../containers/CarList';
+import MyCars from '../containers/MyCars';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -34,11 +35,12 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<CarList />} />
         <Route exact path="/cars" element={<CarList />} />
+        <Route path="my-cars" element={<MyCars />} />
         <Route path="/login" exact element={<Login />} />
         <Route path="/signup" exact element={<SignUp />} />
         <Route path="/logout" exact element={<Logout />} />
-        <Route path="/car/:id" element={<CarDetails />} />
-        <Route path="/cars" exact element={<NewCar />} />
+        <Route path="/cars/:id" element={<CarDetails />} />
+        <Route path="/create-car" exact element={<NewCar />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </Router>

@@ -9,20 +9,20 @@ import authenticateReducer from './authenticateReducer';
 import myCarsReducer from './myCarsReducer';
 import newCarReducer from './newCarReducer';
 
-const persistConfig = {
-  key: 'root',
-  storage,
-  whitelist: ['cars', 'login'],
-};
-
 const rootReducer = combineReducers({
-  cars: carReducer,
-  car: detailReducer,
-  signup: signupReducer,
-  authenticate: authenticateReducer,
-  login: loginReducer,
-  myCars: myCarsReducer,
-  newCar: newCarReducer,
+	cars: carReducer,
+	car: detailReducer,
+	signup: signupReducer,
+	authenticate: authenticateReducer,
+	login: loginReducer,
+	myCars: myCarsReducer,
+	newCar: newCarReducer,
 });
+
+const persistConfig = {
+	key: 'root',
+	storage,
+	whitelist: ['cars', 'login', 'authenticate', 'myCars'],
+};
 
 export default persistReducer(persistConfig, rootReducer);

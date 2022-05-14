@@ -1,13 +1,16 @@
 /* eslint-disable camelcase */
 
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { Navigate } from 'react-router';
+import authenticate from '../../redux/actions/authenticate';
 
 import { userSignup, SignupFailure } from '../../redux/actions/signup';
 
 const SignUp = () => {
 	const dispatch = useDispatch();
+	const auth = useSelector((state) => state.authenticate);
 
 	const [person, setPerson] = useState({
 		username: '',
@@ -26,15 +29,15 @@ const SignUp = () => {
 	console.log();
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const url = 'http://localhost:8000/api/v1/users/signup';
+		const url = process.env.REACT_APP_SIGNUP;
 		axios
 			.post(url, person)
 			.then((response) => {
 				localStorage.setItem('token', JSON.stringify(response.data));
 				dispatch(
-					userSignup({
+					authenticate({
+						status: true,
 						token: response.data.token,
-						username: response.data.username,
 					})
 				);
 			})
@@ -58,6 +61,7 @@ const SignUp = () => {
 	return (
 		<div className='col-4 login'>
 			<h2 className='text-center  mb-3'>User SignUp</h2>
+			{auth.status && <Navigate to='/' replace />}
 
 			<form onSubmit={handleSubmit}>
 				<div className='form-group mb-4'>

@@ -1,13 +1,141 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;400&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+	font-family: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+		'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.carlist {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: auto;
+	grid-gap: 1rem;
+}
+
+.bg {
+	border-bottom: solid 1px rgb(184, 180, 180);
+	background-color: #282a35;
+	display: flex;
+	align-items: center;
+}
+
+.link {
+	color: #f1f1f1;
+	font-size: 1.3rem;
+	font-weight: 800px;
+	padding-top: 1.5rem;
+	margin-left: 8.5rem;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+	text-align: center;
+	padding-top: 3px;
+	font-size: 20px;
+}
+
+.full {
+	text-align: center;
+	padding-top: 3px;
+	font-size: 20px;
+}
+
+.content {
+	text-decoration: none;
+	color: #282a35;
+}
+
+.cover {
+	border: solid 2px;
+	margin: 20px;
+	max-width: 500px;
+	border-radius: 5px;
+}
+
+.detail {
+	border: solid 2px;
+	margin-top: 30px;
+	max-width: 600px;
+	border-radius: 5px;
+}
+
+.login {
+	width: 500px;
+	height: 300px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.img {
+	width: 350px;
+	height: 200px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.img-full {
+	width: 450px;
+	height: 300px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+@media only screen and (max-width: 668px) {
+	.carlist {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.link {
+		color: #f1f1f1;
+		font-size: 12px;
+		font-weight: 400;
+		padding-top: 30px;
+		margin-left: 0;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+
+	.box {
+		text-align: center;
+		padding-top: 2px;
+		font-size: 15px;
+	}
+
+	.img {
+		width: 300px;
+		height: 150px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+
+	.img-full {
+		width: 350px;
+		height: 200px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
 }

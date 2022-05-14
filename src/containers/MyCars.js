@@ -11,7 +11,7 @@ const MyCars = () => {
 
 	const myCar = useSelector((state) => state.myCars.cars);
 	const dispatch = useDispatch();
-	const url = process.env.REACT_APP_MY_CARS;
+	const url = 'https://buy-cars.herokuapp.com/api/v1/cars/myCars';
 	const myFetch = async () => {
 		const response = await axios.get(
 			url,
@@ -30,7 +30,7 @@ const MyCars = () => {
 	}, []);
 
 	const removeCar = async (id) => {
-		const url = `${process.env.REACT_APP_DELETE_CAR}/${id}`;
+		const url = `https://buy-cars.herokuapp.com/api/v1/cars/${id}`;
 		await axios.delete(
 			url,
 			{

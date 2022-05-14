@@ -21,7 +21,7 @@ const Login = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const url = process.env.REACT_APP_LOGIN;
+		const url = 'https://buy-cars.herokuapp.com/api/v1/users/login';
 		axios
 			.post(url, { ...person })
 			.then((response) => {

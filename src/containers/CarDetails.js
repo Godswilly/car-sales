@@ -10,7 +10,7 @@ const CarDetails = () => {
 	const details = useSelector((state) => state.car.details);
 	const dispatch = useDispatch();
 	const { id } = useParams();
-	const url = `${process.env.REACT_APP_SINGLE_CAR}/${id}`;
+	const url = `https://buy-cars.herokuapp.com/api/v1/cars/${id}`;
 
 	const fetchDetails = async () => {
 		const response = await axios.get(url, { mode: 'cors' });

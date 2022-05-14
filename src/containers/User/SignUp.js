@@ -29,7 +29,7 @@ const SignUp = () => {
 	console.log();
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const url = process.env.REACT_APP_SIGNUP;
+		const url = 'https://buy-cars.herokuapp.com/api/v1/users/signup';
 		axios
 			.post(url, person)
 			.then((response) => {

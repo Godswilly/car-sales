@@ -46,7 +46,7 @@ const NewCar = () => {
 		dataForm.append('upload_preset', 'kzq3yl0f');
 
 		try {
-			const url = process.env.REACT_APP_NEW_CAR;
+			const url = 'https://buy-cars.herokuapp.com/api/v1/cars';
 			const response = await axios.post(url, dataForm, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
